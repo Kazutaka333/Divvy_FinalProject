@@ -15,7 +15,7 @@ module InstROM #(parameter IW=16, DW=9)(
   logic [DW-1:0] Instructions [2**IW];	   // 2**IW elements, DW bits each
 	// load machine code program into instruction ROM
   initial 
-	$readmemb("C:/Users/kmloh/Desktop/CSE 141L/sample_mc.txt", Instructions);
+	$readmemb("machine_code.txt", Instructions);
 
 	// continuous combinational read output  
 	//   change the pointer (from program counter) ==> change the output
