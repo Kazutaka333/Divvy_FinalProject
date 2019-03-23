@@ -1,0 +1,1003 @@
+000000000	// move 0 // acc = 0
+100000000	// store 0 $t0 // nM = 0
+100000100	// store 0 $t4 // rM = 0
+100000101	// store 0 $t5 // rL = 0
+100000110	// store 0 $t6 // sB = 0
+100001111	// store 0 $cout // cout = 0
+000000001	// move 1 //acc = 1
+100000001	// store 0  $t1 // nL = 1
+000001000	// move 8 // acc = 8
+100000010	// store 0  $t2 // dM = 8
+011110010	// load 1  $t2 // acc = M[8]
+100000010	// store 0  $t2 // dM = M[8]
+010000000	// sgt 0  0
+100001000	// store 0  $t8 // $t8 = (M[8] > 0)
+000001001	// move 9 // acc = 9
+100000011	// store 0  $t3 // dL = 9
+011110011	// load 1  $t3 // acc = M[9]
+100000011	// store 0  $t3 // dL = M[9]
+010100000	// seq 0  0
+100001111	// store 0  $cout
+011100010	// load 0  $t2
+010100000	// seq 0  0
+001111111	// sand 1  $cout
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne DivZero
+011100011	// load 0  $t3
+010000000	// sgt 0  0 // $acc = (M[9] > 0)
+001011000	// sor 1  $t8 // $acc = (dM > 0 || dL > 0)
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be Pad // if input == $acc == 0  go return 0
+011100101	// load 0  $t5
+011010111	// shift 1  7
+100001111	// store 0  $cout
+011100101	// load 0  $t5
+011000001	// shift 0  1
+100000101	// store 0  $t5
+011100100	// load 0  $t4
+011000001	// shift 0  1
+001011111	// sor 1  $cout
+100000100	// store 0  $t4
+011100000	// load 0  $t0
+010010010	// sgt 1  $t2
+100001000	// store 0  $t8
+011100000	// load 0  $t0
+010110010	// seq 1  $t2
+100001001	// store 0  $t9
+011100001	// load 0  $t1
+010010011	// sgt 1  $t3
+100001010	// store 0  $t10
+011100001	// load 0  $t1
+010110011	// seq 1  $t3 // $acc = (nL == dL)
+001011010	// sor 1  $t10 // $acc = (nL >= dL)
+001111001	// sand 1  $t9 // $acc = (nM == dM) && (nL >= dL)
+001011000	// sor 1  $t8 // $acc = (nM > dM) || ((nM == dM) && (nL >= dL))
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be Increment
+011100011	// load 0  $t3
+010010001	// sgt 1  $t1
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be Subtract
+000000001	// move 1
+101100000	// neg
+000110000	// add 1  $t0
+000100001	// add 0  1
+100000000	// store 0  $t0
+011100011	// load 0  $t3
+101100000	// neg
+000110001	// add 1  $t1
+000100001	// add 0  1
+100000001	// store 0  $t1
+011100010	// load 0  $t2
+101100000	// neg
+000110000	// add 1  $t0
+000100001	// add 0  1
+100000000	// store 0  $t0
+011100101	// load 0  $t5
+000100001	// add 0  1
+100000101	// store 0  $t5
+011100001	// load 0  $t1
+011010111	// shift 1  7
+100001111	// store 0  $cout
+011100001	// load 0  $t1
+011000001	// shift 0  1
+100000001	// store 0  $t1
+000000001	// move 1
+011000111	// shift 0  7
+010110000	// seq 1  $t0
+100001000	// store 0  $t8
+011100110	// load 0  $t6
+010101111	// seq 0  15
+001111000	// sand 1  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001101	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne RoundOff
+011100000	// load 0  $t0
+011000001	// shift 0  1
+001011111	// sor 1  $cout
+100000000	// store 0  $t0
+011100110	// load 0  $t6
+000100001	// add 0  1
+100000110	// store 0  $t6
+000010000	// move 16
+010010110	// sgt 1  $t6
+100001000	// store 0  $t8
+011100000	// load 0  $t0
+010000000	// sgt 0  0
+100001001	// store 0  $t9
+011100001	// load 0  $t1
+010000000	// sgt 0  0 // $acc = (nL > 0)
+001011001	// sor 1  $t9 // $acc = (nM > 0 || nL > 0)
+001111000	// sand 1  $t8 // $acc = (16 > sB) && (nM > 0 || nL > 0)
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne Divide
+011101000	// load 0  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001100	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be RoundOffCheck
+011100101	// load 0  $t5
+011010111	// shift 1  7
+100001111	// store 0  $cout
+011100101	// load 0  $t5
+011000001	// shift 0  1
+100000101	// store 0  $t5
+011100100	// load 0  $t4
+011000001	// shift 0  1
+001011111	// sor 1  $cout
+100000100	// store 0  $t4
+011100110	// load 0  $t6
+000100001	// add 0  1
+100000110	// store 0  $t6
+000010000	// move 16
+010010110	// sgt 1  $t6
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne Pad
+011100000	// load 0  $t0
+010010010	// sgt 1  $t2
+100001000	// store 0  $t8
+011100000	// load 0  $t0
+010110010	// seq 1  $t2
+100001001	// store 0  $t9
+011100001	// load 0  $t1
+010010011	// sgt 1  $t3
+100001010	// store 0  $t10
+011100001	// load 0  $t1
+010110011	// seq 1  $t3 // $acc = (nL == dL)
+001011010	// sor 1  $t10 // $acc = (nL >= dL)
+001111001	// sand 1  $t9 // $acc = (nM == dM) && (nL >= dL)
+001011000	// sor 1  $t8 // $acc = (nM > dM) || ((nM == dM) && (nL >= dL))
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be Exit
+011100101	// load 0  $t5
+000100001	// add 0  1
+100000101	// store 0 $t5
+000001010	// move 10
+100001000	// store 0  $t8
+011100100	// load 0  $t4
+100011000	// store 1  $t8
+000001011	// move 11
+100001001	// store 0  $t9
+011100101	// load 0  $t5
+100011001	// store 1  $t9
+110000000	// halt
+000001010	// move 10
+100000100	// store 0  $t4
+000100001	// add 0  1
+100000101	// store 0  $t5
+000000000	// move 0
+101100000	// neg
+100010100	// store 1  $t4
+100010101	// store 1  $t5
+110000000	// halt
+000000000	// move 0 // acc = 0
+100000011	// store 0 $t3 // rR = 0
+100000100	// store 0 $t4 // rM = 0
+100000101	// store 0 $t5 // rL = 0
+100000110	// store 0 $t6 // sB = 0
+100001001	// store 0 $t9 // rO = 0
+100000111	// store 0 $t7
+100001011	// store 0 $t11
+100001111	// store 0 $cout // cout = 0
+000000010	// move 2 // acc = 2
+100000010	// store 0  $t2 // d = 2
+011110010	// load 1  $t2 // acc = M[2]
+100000010	// store 0  $t2 // d = M[2]
+010000000	// sgt 0  0
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000000	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullDivZero
+011100010	// load 0  $t2
+010000001	// sgt 0  1
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000001	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullDivOne
+000000000	// move 0 // acc = 0
+100000000	// store 0  $t0 // nM = 0
+011110000	// load 1  $t0 // acc = M[0]
+100000000	// store 0  $t0 // nM = M[0]
+010000000	// sgt 0  0
+100001000	// store 0  $t8 // $t8 = (M[8] > 0)
+000000001	// move 1 // acc = 1
+100000111	// store 0  $t7 // inv = 1
+100000001	// store 0  $t1 // nL = 1
+011110001	// load 1  $t1 // acc = M[1]
+100000001	// store 0  $t1 // nL = M[1]
+010000000	// sgt 0  0
+001011000	// sor 1  $t8 // $acc = (nM > 0 || nL > 0)
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullPad // if input == $acc == 0  go return 0
+011100011	// load 0  $t3
+011000001	// shift 0  1
+100000011	// store 0  $t3
+011100111	// load 0  $t7
+011000001	// shift 0  1
+100000111	// store 0  $t7
+011100111	// load 0  $t7
+010010010	// sgt 1  $t2
+100001000	// store 0  $t8
+011100111	// load 0  $t7
+010110010	// seq 1  $t2 // $acc = (inv == d)
+001011000	// sor 1  $t8 // $acc = (inv >= d)
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000100	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullIncrement
+011100010	// load 0  $t2
+101100000	// neg
+000110111	// add 1  $t7
+000100001	// add 0  1
+100000111	// store 0  $t7
+011100011	// load 0  $t3
+000100001	// add 0  1
+100000011	// store 0  $t3
+000000001	// move 1
+100001001	// store 0  $t9
+011000111	// shift 0  7
+010110111	// seq 1  $t7
+100001000	// store 0  $t8
+011100110	// load 0  $t6
+010100110	// seq 0  6
+001111000	// sand 1  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullRoundOff
+000000000	// move 0
+100001001	// store 0  $t9
+011100110	// load 0  $t6
+000100001	// add 0  1
+100000110	// store 0  $t6
+000001000	// move 8
+010010110	// sgt 1  $t6
+100001000	// store 0  $t8
+011100111	// load 0  $t7
+010000000	// sgt 0  0 // $acc = (inv > 0)
+001111000	// sand 1  $t8 // $acc = (8 > sB) && (inv > 0)
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000001	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullDivide
+011101000	// load 0  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001001	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullRoundOffCheck
+011100011	// load 0  $t3
+011000001	// shift 0  1
+100000011	// store 0  $t3
+011100110	// load 0  $t6
+000100001	// add 0  1
+100000110	// store 0  $t6
+000001000	// move 8
+010010110	// sgt 1  $t6
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullPad
+011100111	// load 0  $t7
+010010010	// sgt 1  $t2
+100001000	// store 0  $t8
+011100111	// load 0  $t7
+010110010	// seq 1  $t2 // $acc = (inv == d)
+001011000	// sor 1  $t8 // $acc = (inv >= d)
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullExit
+000000001	// move 1
+100001001	// store 0 $t9
+011100011	// load 0  $t3
+100000111	// store 0  $t7
+000000000	// move 0
+011100011	// load 0 $t3
+000000001	// move  1
+010010001	// sgt 1  $t1
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001100	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullSubtractDiv
+000000001	// move 1
+101100000	// neg
+000110000	// add 1  $t0
+000100001	// add 0  1
+100000000	// store 0  $t0
+000000001	// move 1
+101100000	// neg
+000110001	// add 1  $t1
+000100001	// add 0  1
+100000001	// store 0  $t1
+011100011	// load 0  $t3
+000110111	// add 1  $t7
+100000011	// store 0  $t3
+010010011	// sgt 1  $t3
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001101	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullNoOverflow
+011100101	// load 0  $t5
+000100001	// add 0  1
+100000101	// store 0  $t5
+010010011	// sgt 1 $t3
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001101	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullNoOverflow
+011100100	// load 0  $t4
+000100001	// add 0  1
+100000100	// store 0 $t4
+011100000	// load 0  $t0
+010000000	// sgt 0  0
+100001000	// store 0  $t8
+011100001	// load 0  $t1
+010000000	// sgt 0  0
+001011000	// sor 1  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullMultiply
+011101001	// load 0  $t9
+010100001	// seq 0  1
+100001100	// [branch] store the value of $acc into $t12
+000000001	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullExit
+011100011	// load 0  $t3
+000100001	// add 0  1
+100000011	// store 0  $t3
+000000100	// move 4
+100001000	// store 0  $t8
+011100100	// load 0  $t4
+100011000	// store 1  $t8
+000000101	// move 5
+100001000	// store 0  $t8
+011100101	// load 0  $t5
+100011000	// store 1  $t8
+000000110	// move 6
+100001000	// store 0  $t8
+011100011	// load 0  $t3
+100011000	// store 1  $t8
+110000000	// halt
+000000100	// move 4
+100000100	// store 0  $t4
+000100001	// add 0  1
+100000101	// store 0  $t5
+000100001	// add 0  1
+100000011	// store 0  $t3
+000000000	// move 0
+101100000	// neg
+100010100	// store 1  $t4
+100010101	// store 1  $t5
+100010011	// store 1  $t3
+110000000	// halt
+000000100	// move 4
+100000100	// store 0  $t4
+000000000	// move 0
+100000000	// store 0  $t0
+011110000	// load 1  $t0
+100010100	// store 1  $t4
+000000101	// move 5
+100000101	// store 0  $t5
+000000001	// move 1
+100000001	// store 0  $t1
+011110001	// load 1  $t1
+100010101	// store 1  $t5
+000000110	// move 6
+100001000	// store 0  $t8
+011100011	// load 0  $t3
+100011000	// store 1  $t8
+110000000	// halt
+000000001	// move    1
+100000010	// store   0   $t2
+000000000	// move    0
+101100000	// neg     
+100000011	// store   0   $t3  
+000000000	// move    0
+101100000	// neg     
+100000100	// store   0   $t4
+000000000	// move    0
+101100000	// neg     
+100000101	// store   0   $t5
+000000000	// move    0
+100001010	// store   0   $t10
+000010000	// move    16
+100001011	// store   0   $t11
+011111011	// load    1   $t11
+100011010	// store   1   $t10
+000000001	// move    1
+100001010	// store   0   $t10
+000010001	// move    17
+100001011	// store   0   $t11
+011111011	// load    1   $t11
+100011010	// store   1   $t10
+000000000	//         move    0
+010110010	//         seq     1   $t2
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//         be     Continue
+000010010	//         move    18
+100001010	//         store   0   $t10
+000000000	//         move    0
+101100000	//         neg
+100011010	//         store   1   $t10
+110000000	//         halt
+011100011	//     load    0   $t3
+100000110	//     store   0   $t6
+011100100	//     load    0   $t4
+100000111	//     store   0   $t7
+011100101	//     load    0   $t5
+100001000	//     store   0   $t8
+000010110	//         move    22
+100001010	//         store   0   $t10
+011100010	//         load    0   $t2
+100011010	//         store   1   $t10
+000011010	//         move    26
+100001010	//         store   0   $t10
+011100110	//         load    0   $t6
+100011010	//         store   1   $t10
+000011011	//         move    27
+100001010	//         store   0   $t10
+011100111	//         load    0   $t7
+100011010	//         store   1   $t10
+000011100	//         move    28
+100001010	//         store   0   $t10
+011101000	//         load    0   $t8
+100011010	//         store   1   $t10
+000000010	//     move    2
+100001010	//     store   0   $t10
+011100010	//     load    0   $t2
+100011010	//     store   1   $t10
+000000000	// move 0 // acc = 0
+100000011	// store 0 $t3 // rR = 0
+100000100	// store 0 $t4 // rM = 0
+100000101	// store 0 $t5 // rL = 0
+100000110	// store 0 $t6 // sB = 0
+100001001	// store 0 $t9 // rO = 0
+100000111	// store 0 $t7
+100001011	// store 0 $t11
+100001111	// store 0 $cout // cout = 0
+000000010	// move 2 // acc = 2
+100000010	// store 0  $t2 // d = 2
+011110010	// load 1  $t2 // acc = M[2]
+100000010	// store 0  $t2 // d = M[2]
+010000000	// sgt 0  0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000100	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullDivZero_
+011100010	// load 0  $t2
+010000001	// sgt 0  1
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000101	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullDivOne_
+000000000	// move 0 // acc = 0
+100000000	// store 0  $t0 // nM = 0
+011110000	// load 1  $t0 // acc = M[0]
+100000000	// store 0  $t0 // nM = M[0]
+010000000	// sgt 0  0
+100001000	// store 0  $t8 // $t8 = (M[8] > 0)
+000000001	// move 1 // acc = 1
+100000111	// store 0  $t7 // inv = 1
+100000001	// store 0  $t1 // nL = 1
+011110001	// load 1  $t1 // acc = M[1]
+100000001	// store 0  $t1 // nL = M[1]
+010000000	// sgt 0  0
+001011000	// sor 1  $t8 // $acc = (nM > 0 || nL > 0)
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullPad_ // if input == $acc == 0  go return 0
+011100011	// load 0  $t3
+011000001	// shift 0  1
+100000011	// store 0  $t3
+011100111	// load 0  $t7
+011000001	// shift 0  1
+100000111	// store 0  $t7
+011100111	// load 0  $t7
+010010010	// sgt 1  $t2
+100001000	// store 0  $t8
+011100111	// load 0  $t7
+010110010	// seq 1  $t2 // $acc = (inv == d)
+001011000	// sor 1  $t8 // $acc = (inv >= d)
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001000	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullIncrement_
+011100010	// load 0  $t2
+101100000	// neg
+000110111	// add 1  $t7
+000100001	// add 0  1
+100000111	// store 0  $t7
+011100011	// load 0  $t3
+000100001	// add 0  1
+100000011	// store 0  $t3
+000000001	// move 1
+100001001	// store 0  $t9
+011000111	// shift 0  7
+010110111	// seq 1  $t7
+100001000	// store 0  $t8
+011100110	// load 0  $t6
+010100110	// seq 0  6
+001111000	// sand 1  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullRoundOff_
+000000000	// move 0
+100001001	// store 0  $t9
+011100110	// load 0  $t6
+000100001	// add 0  1
+100000110	// store 0  $t6
+000001000	// move 8
+010010110	// sgt 1  $t6
+100001000	// store 0  $t8
+011100111	// load 0  $t7
+010000000	// sgt 0  0 // $acc = (inv > 0)
+001111000	// sand 1  $t8 // $acc = (8 > sB) && (inv > 0)
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000101	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullDivide_
+011101000	// load 0  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001101	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullRoundOffCheck_
+011100011	// load 0  $t3
+011000001	// shift 0  1
+100000011	// store 0  $t3
+011100110	// load 0  $t6
+000100001	// add 0  1
+100000110	// store 0  $t6
+000001000	// move 8
+010010110	// sgt 1  $t6
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullPad_
+011100111	// load 0  $t7
+011000001	// shift 0  1
+010010010	// sgt 1  $t2
+100001000	// store 0  $t8
+011100111	// load 0  $t7
+010110010	// seq 1  $t2 // $acc = (inv == d)
+001011000	// sor 1  $t8 // $acc = (inv >= d)
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullExit_
+000000001	// move 1
+100001001	// store 0 $t9
+011100011	// load 0  $t3
+100000111	// store 0  $t7
+000000000	// move 0
+011100011	// load 0 $t3
+000000001	// move  1
+010010001	// sgt 1  $t1
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000000	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullSubtractDiv_
+000000001	// move 1
+101100000	// neg
+000110000	// add 1  $t0
+000100001	// add 0  1
+100000000	// store 0  $t0
+000000001	// move 1
+101100000	// neg
+000110001	// add 1  $t1
+000100001	// add 0  1
+100000001	// store 0  $t1
+011100011	// load 0  $t3
+000110111	// add 1  $t7
+100000011	// store 0  $t3
+010010011	// sgt 1  $t3
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000001	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullNoOverflow_
+011100101	// load 0  $t5
+000100001	// add 0  1
+100000101	// store 0  $t5
+010010011	// sgt 1 $t3
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000001	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullNoOverflow_
+011100100	// load 0  $t4
+000100001	// add 0  1
+100000100	// store 0 $t4
+011100000	// load 0  $t0
+010000000	// sgt 0  0
+100001000	// store 0  $t8
+011100001	// load 0  $t1
+010000000	// sgt 0  0
+001011000	// sor 1  $t8
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	// bne FullMultiply_
+011101001	// load 0  $t9
+010100001	// seq 0  1
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be FullExit_
+011100011	// load 0  $t3
+000100001	// add 0  1
+100000011	// store 0  $t3
+000000100	// move 4
+100001000	// store 0  $t8
+011100100	// load 0  $t4
+100011000	// store 1  $t8
+000000101	// move 5
+100001000	// store 0  $t8
+011100101	// load 0  $t5
+100011000	// store 1  $t8
+000000110	// move 6
+100001000	// store 0  $t8
+011100011	// load 0  $t3
+100011000	// store 1  $t8
+000000000	// move 	0 
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be 		EndP2
+000000100	// move 4
+100000100	// store 0  $t4
+000100001	// add 0  1
+100000101	// store 0  $t5
+000100001	// add 0  1
+100000011	// store 0  $t3
+000000000	// move 0
+101100000	// neg
+100010100	// store 1  $t4
+100010101	// store 1  $t5
+100010011	// store 1  $t3
+000000000	// move 	0 
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be 		EndP2
+000000100	// move 4
+100000100	// store 0  $t4
+000000000	// move 0
+100000000	// store 0  $t0
+011110000	// load 1  $t0
+100010100	// store 1  $t4
+000000101	// move 5
+100000101	// store 0  $t5
+000000001	// move 1
+100000001	// store 0  $t1
+011110001	// load 1  $t1
+100010101	// store 1  $t5
+000000110	// move 6
+100001000	// store 0  $t8
+011100011	// load 0  $t3
+100011000	// store 1  $t8
+000000000	// move 	0 
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	// be 		EndP2
+000010110	//         move    22
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100000010	//         store   0   $t2
+000011010	//         move    26
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100000110	//         store   0   $t6
+000011011	//         move    27
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100000111	//         store   0   $t7
+000011100	//         move    28
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100001000	//         store   0   $t8
+000000100	//         move    4
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100000011	//         store   0   $t3
+000000101	//         move    5
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100000100	//         store   0   $t4
+000000110	//         move    6
+100001010	//         store   0   $t10
+011111010	//         load    1   $t10
+100000101	//         store   0   $t5
+011100010	//     load    0   $t2
+000100001	//     add     0   1
+100000010	//     store   0   $t2
+011100011	//         load    0   $t3
+010000000	//         sgt     0   0
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	//         bne     DoWhile
+011100100	//         load    0   $t4
+010010010	//         sgt     1   $t2
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	//         bne     DoWhile
+011100100	//             load    0   $t4
+010110010	//             seq     1   $t2
+100001010	//             store   0   $t10
+011100101	//             load    0   $t5
+010000000	//             sgt     0   0
+100001011	//             store   0   $t11
+011101010	//             load    0   $t10
+001111011	//             sand    1   $t11
+100001100	// [branch] store the value of $acc into $t12
+000000010	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+101001101	//             bne     DoWhile
+000000001	// move    1
+101100000	// neg
+000100001	// add     0   1
+000110010	// add     1   $t2
+100000011	// store   0   $t3
+011100101	//     load    0   $t5
+010000000	//     sgt     0   0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001000111	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be     Else1
+000000001	//     move    1
+100000110	//     store   0   $t6
+000000000	//     move    0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001000	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be      End1
+000000000	//     move    0
+100000110	//     store   0   $t6
+011100010	//     load    0   $t2
+100000000	//     store   0   $t0
+011100100	//     load    0   $t4
+101100000	//     neg
+000100001	//     add     0   1
+100000100	//     store   0   $t4
+011100110	//     load    0   $t6
+101100000	//     neg
+000100001	//     add     0   1
+100000110	//     store   0   $t6       
+011100000	//     load    0   $t0
+000110100	//     add     1   $t4
+100000000	//     store   0   $t0
+011100000	//     load    0   $t0
+000110110	//     add     1   $t6
+100000000	//     store   0   $t0
+011101000	//     load    0   $t8
+010000000	//     sgt     0   0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001001	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be     Else2
+000000001	//     move    1
+100000110	//     store   0   $t6
+000000000	//     move    0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001010	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be      End2
+000000000	//     move    0
+100000110	//     store   0   $t6
+011100111	//     load    0   $t7
+100000001	//     store   0   $t1
+011100011	//     load    0   $t3
+101100000	//     neg
+000100001	//     add     0   1
+100000011	//     store   0   $t3
+011100001	//     load    0   $t1
+000110011	//     add     1   $t3
+100000001	//     store   0   $t1
+011100011	//     load    0   $t3
+101100000	//     neg
+000100001	//     add     0   1
+100000011	//     store   0   $t3
+011100001	//     load    0   $t1
+000110110	//     add     1   $t6
+100000001	//     store   0   $t1
+011100001	//     load    0   $t1
+010010000	//     sgt     1   $t0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be     Else3
+010110000	//     seq     1   $t0
+100001100	// [branch] store the value of $acc into $t12
+000000011	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001011	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be     Else3
+000010010	//     move    18
+100001010	//     store   0   $t10
+011100010	//     load    0   $t2
+100011010	//     store   1   $t10
+000000000	//     move    0
+100001100	// [branch] store the value of $acc into $t12
+000000000	// [branch] store the MSB of label LUT index into acc
+011000100	// [branch] shift-left the value in acc
+001001110	// [branch] or the LSB of label LUT index with the value in acc
+100001101	// [branch] store the value of acc into $t13
+011101100	// [branch] restore acc
+100101101	//     be      Exit
+000010010	//     move    18
+100001010	//     store   0   $t10
+011100011	//     load    0   $t3
+100011010	//     store   1   $t10
+110000000	// halt
