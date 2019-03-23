@@ -13,7 +13,7 @@ logic[15:0] PCAddrLUT[2**8];
 
 initial begin
 // Read text file
-$readmemb("sample_lut.txt",PCAddrLUT);
+$readmemb("lut.txt",PCAddrLUT);
 end
 
 always_comb
