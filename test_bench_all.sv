@@ -93,14 +93,14 @@ initial begin
 // insert operand
   dat_in3 = 0;//65535;		   // *** try various values here ***
 // *** change names of memory or its guts as needed ***
-  d1.MyDataMem.MyMemory[13] = dat_in3[15: 8];
-  d1.MyDataMem.MyMemory[14] = dat_in3[ 7: 0]; 
+ d1.MyDataMem.MyMemory[16] = dat_in3[15: 8];
+ d1.MyDataMem.MyMemory[17] = dat_in3[ 7: 0]; 
   if(dat_in3==0) result3 = 0;   // trap 0 case up front
   else div3;
   #20ns start = 0;
   #20ns wait(done);
 // *** change names of memory or its guts as needed ***
-  result3_DUT = d1.MyDataMem.MyMemory[15];     
+ result3_DUT = d1.MyDataMem.MyMemory[18];     
   $display("operand = %h, sqrt = %h",dat_in3,result3);
   if(result3==result3_DUT) $display("success -- match3");
   else $display("OOPS3! expected %h, got %h",result3,result3_DUT);
