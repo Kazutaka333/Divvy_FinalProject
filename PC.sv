@@ -32,8 +32,8 @@ always_ff@(posedge CLK) begin
 	if(START) begin
 		case(PROG_STATE)
 			0: PC <= 'b0;     // start first program; hold PC until init is released by the test bench
-			1: PC <= 'd29;   // value should correspond to first line of program 2 in your instruction memory
-			2: PC <= 'bz;   // value should correspond to first line of program 3 in your instruction memory
+			1: PC <= 'd214;   // value should correspond to first line of program 2 in your instruction memory
+			2: PC <= 'd477;   // value should correspond to first line of program 3 in your instruction memory
 			3: PC <= 'bz;   // (optional) value should trigger a halt in your PC 
 		endcase
 	end
