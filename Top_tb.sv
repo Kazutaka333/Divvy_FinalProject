@@ -33,6 +33,11 @@ initial begin
   #20ns START = 0;
   #20ns wait(DONE);
   
+  //Program 3 start
+  #10ns START = 1;
+  #20ns START = 0;
+  #20ns wait(DONE);
+  
 
 end
 endmodule
