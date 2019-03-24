@@ -1,14 +1,15 @@
 Summary:
--when running the test_bench_all
+-when running the test_bench_all simulation
+-all the program run continuously
 -program 1 works for all cases
--program 2 works but fail some cases. 
+-program 2 works but fail some cases 
 -program 2 works for number divided by zero and for some number
 -program 3 runs but fail to get the right answer
 
 Instruction:
 1. start a new project in Modelsim
 2. add the module and testbenches (systemVerilog file) into a new project
-3. change the absolute/relative path directory of the lut.txt and machine_code.txt in LUTPC.sv and InstRom.sv
+3. change the absolute/relative path directory of the lut.txt and machine_code.txt in LUTPC.sv and InstRom.sv if necessary
 4. compile all the file in Modelsim
 5. start simulation and select test_bench_all.sv
 5. change the input for program 1/2/3 when necessary in test_bench_all.sv
@@ -20,7 +21,7 @@ Changes made to Original testbench:
 
 Others:
 -assembler.py is used to generated machine code from programAll assembly code
--Program Counter has to be updated manually when the machine code get updated
+-program counter(PC.sv) has to be updated manually when the machine code get updated
 
 File included:
 ALU.sv				
