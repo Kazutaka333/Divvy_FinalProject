@@ -1,9 +1,9 @@
 Summary:
-when running the test_bench_all
-program 1 works for all cases
-program 2 works but fail some cases. 
-program 2 works for divisor1 = 0, 1 ,127 ...
-program 3 runs but fail to get the right answer
+-when running the test_bench_all
+-program 1 works for all cases
+-program 2 works but fail some cases. 
+-program 2 works for number divided by zero and for some number
+-program 3 runs but fail to get the right answer
 
 Instruction:
 1. start a new project in Modelsim
@@ -14,12 +14,13 @@ Instruction:
 5. change the input for program 1/2/3 when necessary in test_bench_all.sv
 
 Changes made to Original testbench:
-changes the name DUT to use our own Top module - Top d1(.CLK(clk), .START(start), .DONE(done))
-changes the name of the memory to MyDataMem.MyMemory
-changes to the dataMem[address] for program 3 according to the lab1 specification
+-changes the name DUT to use our own Top module - Top d1(.CLK(clk), .START(start), .DONE(done))
+-changes the name of the memory to MyDataMem.MyMemory
+-changes to the dataMem[address] for program 3 according to the lab1 specification
 
 Others:
-assembler.py is used to generated machine code from programAll assembly code.
+-assembler.py is used to generated machine code from programAll assembly code
+-Program Counter has to be updated manually when the machine code get updated
 
 File included:
 ALU.sv				
