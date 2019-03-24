@@ -17,7 +17,7 @@ Instruction:
 Changes made to Original testbench:
 -changes the name DUT to use our own Top module - Top d1(.CLK(clk), .START(start), .DONE(done))
 -changes the name of the memory to MyDataMem.MyMemory
--changes to the dataMem[address] for program 3 according to the lab1 specification
+-changes the dataMem[address] for program 3 according to the lab1 specification
 
 Others:
 -assembler.py is used to generated machine code from programAll assembly code
